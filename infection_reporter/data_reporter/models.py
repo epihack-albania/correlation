@@ -13,6 +13,7 @@ class Disease(StdModel):
         db_table = 'disease'
         verbose_name = 'Disease'
         verbose_name_plural = 'Disease'
+        ordering = ['name']
 
     name = models.CharField('Name', max_length=255)
     incubation_period = models.PositiveIntegerField('Incubation period')
@@ -38,15 +39,15 @@ class HumanCase(StdModel):
     report_avg = models.PositiveIntegerField('Report average time')
     district = models.CharField('District', max_length=255)
     village = models.CharField('Village', max_length=255)
-    min_age = models.DecimalField('Min. Age', decimal_places=1, max_digits=3)
-    max_age = models.DecimalField('Max Age', decimal_places=1, max_digits=3)
-    avg_age = models.DecimalField('Average Age', decimal_places=1, max_digits=3)
-    vaccination_rate = models.DecimalField('Vaccination Rate', decimal_places=1, max_digits=3)
-    death_rate = models.DecimalField('Death Rate', decimal_places=1, max_digits=3)
-    recovery_rate = models.DecimalField('Recovery Rate', decimal_places=1, max_digits=3)
-    sequela_rate = models.DecimalField('Sequela Rate', decimal_places=1, max_digits=3)
-    attack_rate = models.DecimalField('Attack Rate', decimal_places=1, max_digits=3)
-    disease = models.ForeignKey(Disease)
+    min_age = models.DecimalField('Min. Age', decimal_places=1, max_digits=4)
+    max_age = models.DecimalField('Max Age', decimal_places=1, max_digits=4)
+    avg_age = models.DecimalField('Average Age', decimal_places=1, max_digits=4)
+    vaccination_rate = models.DecimalField('Vaccination Rate', decimal_places=1, max_digits=4)
+    death_rate = models.DecimalField('Death Rate', decimal_places=1, max_digits=4)
+    recovery_rate = models.DecimalField('Recovery Rate', decimal_places=1, max_digits=4)
+    sequela_rate = models.DecimalField('Sequela Rate', decimal_places=1, max_digits=4)
+    attack_rate = models.DecimalField('Attack Rate', decimal_places=1, max_digits=4)
+    disease = models.ForeignKey(Disease, related_name='human_cases')
 
     def __str__(self):
         return "{} - {} - {}".format(self.disease, self.case_count, self.district)
@@ -64,7 +65,7 @@ class AnimalCase(StdModel):
     morbidity_rate = models.DecimalField('Morbidity rate', max_digits=3, decimal_places=2)
     mortality_rate = models.DecimalField('Mortality rate', max_digits=3, decimal_places=2)
     fatality_rate = models.DecimalField('Fatality rate', max_digits=3, decimal_places=2)
-    disease = models.ForeignKey(Disease)
+    disease = models.ForeignKey(Disease, related_name='animal_cases')
 
     def __str__(self):
         return "{} - {} - {}".format(self.disease, self.case_count, self.district)

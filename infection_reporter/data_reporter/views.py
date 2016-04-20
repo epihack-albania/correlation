@@ -9,6 +9,10 @@ def index(request):
     return render(request, 'data_reporter/index.html')
 
 
+def get_disease_view(request, disease_pk):
+    return render(request, 'data_reporter/index.html', context={'active': disease_pk})
+
+
 def get_human_cases(request, disease_pk):
     human_cases = HumanCase.objects.filter(disease_id=disease_pk)
     return JsonResponse({'data': HumanCaseSerializer(human_cases, many=True).data})

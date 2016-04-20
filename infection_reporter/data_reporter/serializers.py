@@ -3,11 +3,13 @@ import serpy
 
 class HumanCaseSerializer(serpy.Serializer):
     case_count = serpy.IntField()
-    residency_region = serpy.StrField()
-    residency_district = serpy.StrField()
-    residency_commune = serpy.StrField()
-    residency_village = serpy.StrField()
-    period = serpy.MethodField()
+    hospitalization_avg = serpy.FloatField()
+    sampling_avg = serpy.FloatField()
+    laboratory_avg = serpy.FloatField()
+    report_avg = serpy.FloatField()
+    district = serpy.StrField()
+    village = serpy.StrField()
+    min_age = serpy.FloatField()
     disease = serpy.MethodField()
     confirm_count = serpy.IntField()
     probable_count = serpy.IntField()

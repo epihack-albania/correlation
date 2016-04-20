@@ -21,5 +21,5 @@ from data_reporter import urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^data-reporter', include(data_reporter.urls, namespace='data-reporter'))
+    url(r'^data-reporter/', include(data_reporter.urls, namespace='data-reporter'))
 ]

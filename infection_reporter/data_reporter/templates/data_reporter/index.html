@@ -50,17 +50,24 @@
 <div class="row">
     <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#">Brucellosis <span class="badge alert-warning">5</span></a></li>
-            <li><a href="#">CCHF <span class="badge">2</span></a></li>
-            <li><a href="#">Hanta <span class="badge">1</span></a></li>
-            <li><a href="#">WNF <span class="badge">1</span></a></li>
-            <li><a href="#">Anthrax <span class="badge">1</span></a></li>
-            <li><a href="#">Leishmania</a></li>
-            <li><a href="#">Influenza <span class="badge">3</span></a></li>
-            <li><a href="#">Tuberculosis</a></li>
-            <li><a href="#">HepA</a></li>
-            <li><a href="#">HepB</a></li>
-            <li><a href="#">HepC</a></li>
+            {% for disease in diseases %}
+                <li {% ifequal active disease.id %} class="active" {% endifequal %}>
+                    <a href="{% url 'data-reporter:disease' disease.id %}"></a>{{ disease.name }} {{ disease.human_cases.count }}
+                    | {{ disease.animal_cases.count }}
+                </li>
+            {% endfor %}
+
+            {#            <li class="active"><a href="#">Brucellosis <span class="badge alert-warning">5</span></a></li>#}
+            {#            <li><a href="#">CCHF <span class="badge">2</span></a></li>#}
+            {#            <li><a href="#">Hanta <span class="badge">1</span></a></li>#}
+            {#            <li><a href="#">WNF <span class="badge">1</span></a></li>#}
+            {#            <li><a href="#">Anthrax <span class="badge">1</span></a></li>#}
+            {#            <li><a href="#">Leishmania</a></li>#}
+            {#            <li><a href="#">Influenza <span class="badge">3</span></a></li>#}
+            {#            <li><a href="#">Tuberculosis</a></li>#}
+            {#            <li><a href="#">HepA</a></li>#}
+            {#            <li><a href="#">HepB</a></li>#}
+            {#            <li><a href="#">HepC</a></li>#}
         </ul>
     </div>
     <div class="col-md-10">
@@ -78,16 +85,22 @@
                     <thead>
                     <tr>
                         <th>Cases</th>
-                        <th>Region</th>
-                        <th>District</th>
-                        <th>Commune</th>
-                        <th>Village</th>
-                        <th>Period</th>
                         <th>Disease</th>
-                        <th>Confirmed</th>
-                        <th>Probable</th>
-                        <th>Suspected</th>
-                        <th>Severity level</th>
+                        <th>District</th>
+                        <th>Village</th>
+                        <th>Report avg.</th>
+                        <th>Hosp. avg.</th>
+                        <th>Sampling avg.</th>
+                        <th>Lab. avg.</th>
+                        <th>Treatment avg.</th>
+                        <th>Min Age</th>
+                        <th>Max Age</th>
+                        <th>Age avg.</th>
+                        <th>Vaccination rate</th>
+                        <th>Death rate</th>
+                        <th>Recovery rate</th>
+                        <th>Sequela rate</th>
+                        <th>Attack rate</th>
                     </tr>
                     </thead>
                 </table>
@@ -97,16 +110,12 @@
                     <thead>
                     <tr>
                         <th>Cases</th>
-                        <th>Region</th>
-                        <th>District</th>
-                        <th>Commune</th>
-                        <th>Village</th>
-                        <th>Period</th>
                         <th>Disease</th>
-                        <th>Confirmed</th>
-                        <th>Probable</th>
-                        <th>Suspected</th>
-                        <th>Severity level</th>
+                        <th>District</th>
+                        <th>Village</th>
+                        <th>Morbidity rate</th>
+                        <th>Mortality rate</th>
+                        <th>Fatality rate</th>
                     </tr>
                     </thead>
                 </table>
