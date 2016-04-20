@@ -15,6 +15,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'data_reporter/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'data_reporter/css/dataTables.bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'data_reporter/css/index.css' %}">
 
     <script type="text/javascript" language="javascript" src="{% static 'data_reporter/js/jquery.min.js' %}"></script>
     <script type="text/javascript" language="javascript"
@@ -51,23 +52,12 @@
     <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked">
             {% for disease in diseases %}
-                <li {% ifequal active disease.id %} class="active" {% endifequal %}>
-                    <a href="{% url 'data-reporter:disease' disease.id %}"></a>{{ disease.name }} {{ disease.human_cases.count }}
-                    | {{ disease.animal_cases.count }}
+                <li {% ifequal active disease.name %} class="active" data-disease-id="{{ disease.id }}" {% endifequal %}>
+                    <a href="{% url 'data-reporter:disease' disease.id %}">{{ disease.name }}
+                        <span class="badge pull-right">{{ disease.human_cases.count }} | {{ disease.animal_cases.count }}</span>
+                    </a>
                 </li>
             {% endfor %}
-
-            {#            <li class="active"><a href="#">Brucellosis <span class="badge alert-warning">5</span></a></li>#}
-            {#            <li><a href="#">CCHF <span class="badge">2</span></a></li>#}
-            {#            <li><a href="#">Hanta <span class="badge">1</span></a></li>#}
-            {#            <li><a href="#">WNF <span class="badge">1</span></a></li>#}
-            {#            <li><a href="#">Anthrax <span class="badge">1</span></a></li>#}
-            {#            <li><a href="#">Leishmania</a></li>#}
-            {#            <li><a href="#">Influenza <span class="badge">3</span></a></li>#}
-            {#            <li><a href="#">Tuberculosis</a></li>#}
-            {#            <li><a href="#">HepA</a></li>#}
-            {#            <li><a href="#">HepB</a></li>#}
-            {#            <li><a href="#">HepC</a></li>#}
         </ul>
     </div>
     <div class="col-md-10">

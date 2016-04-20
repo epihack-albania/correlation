@@ -7,48 +7,110 @@ $(document).ready(function () {
         $.fn.dataTable.tables({visible: true, api: true}).columns.adjust();
     });
 
-    $('#human-cases-table').DataTable({
+    var diseaseId = $('li.active').attr('data-disease-id');
+
+    var humanCasesTable = $('#human-cases-table').DataTable({
         ajax: {
-            "url": "http://localhost:8000/data-reporter/human/cases/1",
+            "url": "http://localhost:8000/data-reporter/human/cases/" + diseaseId,
+            "dataType": "json"
+        },
+        columns: [
+            {
+                "data": "case_count",
+                "class": "text-center",
+                "render": function (data, type, full, meta) {
+                    if (full.disease.urgent || full.case_count > 3) {
+                        return "<span class='urgent'>" + data + "</span>"
+                    }
+                    return "<span>" + data + "</span>";
+                }
+            },
+            {
+                "data": "disease",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data.name + '</span>';
+                }
+            },
+            {"data": "district"},
+            {"data": "village"},
+            {"data": "report_avg"},
+            {"data": "hospitalization_avg"},
+            {"data": "sampling_avg"},
+            {"data": "laboratory_avg"},
+            {"data": "treatment_avg"},
+            {"data": "min_age"},
+            {"data": "max_age"},
+            {"data": "age_avg"},
+            {
+                "data": "vaccination_rate",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data + '%</span>';
+                }
+            },
+            {
+                "data": "death_rate",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data + '%</span>';
+                }
+            },
+            {
+                "data": "recovery_rate",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data + '%</span>';
+                }
+            },
+            {
+                "data": "sequela_rate",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data + '%</span>';
+                }
+            },
+            {
+                "data": "attack_rate",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data + '%</span>';
+                }
+            }
+        ]
+    });
+    var animalCasesTable = $('#animal-cases-table').DataTable({
+        ajax: {
+            "url": "http://localhost:8000/data-reporter/animal/cases/" + diseaseId,
             "dataType": "json"
         },
         columns: [
             {"data": "case_count"},
-            {"data": "residency_region"},
-            {"data": "residency_district"},
-            {"data": "residency_commune"},
-            {"data": "residency_village"},
-            {"data": "period"},
-            {"data": "disease"},
-            {"data": "confirm_count"},
-            {"data": "probable_count"},
-            {"data": "suspected_count"},
-            {"data": "severity_level"}
-        ],
-        scrollY: 700,
-        scrollCollapse: true,
-        paging: false
+            {
+                "data": "disease",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data.name + '</span>';
+                }
+            },
+            {"data": "district"},
+            {"data": "village"},
+            {
+                "data": "morbidity_rate",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data + '%</span>';
+                }
+            },
+            {
+                "data": "mortality_rate",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data + '%</span>';
+                }
+            },
+            {
+                "data": "fatality_rate",
+                "render": function (data, type, full, meta) {
+                    return '<span>' + data + '%</span>';
+                }
+            }
+        ]
     });
-    $('#animal-cases-table').DataTable({
-        ajax: {
-            "url": "http://localhost:8000/data-reporter/animal/cases/1",
-            "dataType": "json"
-        },
-        columns: [
-            {"data": "case_count"},
-            {"data": "residency_region"},
-            {"data": "residency_district"},
-            {"data": "residency_commune"},
-            {"data": "residency_village"},
-            {"data": "period"},
-            {"data": "disease"},
-            {"data": "confirm_count"},
-            {"data": "probable_count"},
-            {"data": "suspected_count"},
-            {"data": "severity_level"}
-        ],
-        scrollY: 700,
-        scrollCollapse: true,
-        paging: false
-    });
+
+    setInterval(function () {
+        humanCasesTable.ajax.reload();
+        animalCasesTable.ajax.reload();
+    }, 15000)
 });

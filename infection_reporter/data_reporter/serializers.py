@@ -8,6 +8,7 @@ class HumanCaseSerializer(serpy.Serializer):
     sampling_avg = serpy.FloatField()
     laboratory_avg = serpy.FloatField()
     report_avg = serpy.FloatField()
+    treatment_avg = serpy.FloatField()
     district = serpy.StrField()
     village = serpy.StrField()
     min_age = serpy.FloatField()
@@ -20,17 +21,23 @@ class HumanCaseSerializer(serpy.Serializer):
     attack_rate = serpy.FloatField()
 
     def get_disease(self, obj):
-        return obj.disease.name
+        return {
+            'name': obj.disease.name,
+            'urgent': obj.disease.urgent
+        }
 
 
 class AnimalCaseSerializer(serpy.Serializer):
     case_count = serpy.IntField()
     disease = serpy.MethodField()
-    residency_district = serpy.StrField()
-    residency_village = serpy.StrField()
+    district = serpy.StrField()
+    village = serpy.StrField()
     morbidity_rate = serpy.FloatField()
     mortality_rate = serpy.FloatField()
     fatality_rate = serpy.FloatField()
 
     def get_disease(self, obj):
-        return obj.disease.name
+        return {
+            'name': obj.disease.name,
+            'urgent': obj.disease.urgent
+        }

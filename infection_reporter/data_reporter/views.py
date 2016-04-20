@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 
-from data_reporter.models import HumanCase, AnimalCase
+from data_reporter.models import HumanCase, AnimalCase, Disease
 from data_reporter.serializers import HumanCaseSerializer, AnimalCaseSerializer
 
 
@@ -10,7 +10,8 @@ def index(request):
 
 
 def get_disease_view(request, disease_pk):
-    return render(request, 'data_reporter/index.html', context={'active': disease_pk})
+    disease = Disease.objects.get(pk=disease_pk)
+    return render(request, 'data_reporter/index.html', context={'active': disease.name})
 
 
 def get_human_cases(request, disease_pk):
