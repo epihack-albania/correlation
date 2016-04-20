@@ -112,5 +112,5 @@ $(document).ready(function () {
     setInterval(function () {
         humanCasesTable.ajax.reload();
         animalCasesTable.ajax.reload();
-    }, 15000)
+    }, 60000)
 });
