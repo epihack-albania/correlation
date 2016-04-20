@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     $('#human-cases-table').DataTable({
         ajax: {
-            "url": "http://localhost:8000/data-reporter/human/cases/",
+            "url": "http://localhost:8000/data-reporter/human/cases/1",
             "dataType": "json"
         },
         columns: [
@@ -31,7 +31,7 @@ $(document).ready(function () {
     });
     $('#animal-cases-table').DataTable({
         ajax: {
-            "url": "http://localhost:8000/data-reporter/animal/cases/",
+            "url": "http://localhost:8000/data-reporter/animal/cases/1",
             "dataType": "json"
         },
         columns: [
