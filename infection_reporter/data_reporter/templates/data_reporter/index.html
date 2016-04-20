@@ -24,23 +24,41 @@
     <script type="text/javascript" language="javascript"
             src="{% static 'data_reporter/js/dataTables.bootstrap.min.js' %}">
     </script>
-
     <script type="text/javascript" src="{% static 'data_reporter/js/index.js' %}"></script>
 </head>
 <body>
+<header>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i class="glyphicon glyphicon-bullhorn" style="color: red"></i> Alarm
+                    and Alert</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+</header>
 <div>
     <ul class="nav nav-tabs" role="tablist">
         <li class="active">
-            <a href="#human-cases-tab" data-toggle="tab" class="glyphicon glyphicon-user">Human</a>
+            <a href="#human-cases-tab" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> Human</a>
         </li>
         <li>
-            <a href="#animal-cases-tab" data-toggle="tab" class="glyphicon glyphicon-knight">Animal</a>
+            <a href="#animal-cases-tab" data-toggle="tab"><i class="glyphicon glyphicon-knight"></i> Animal</a>
         </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="human-cases-tab">
-            <table id="human-cases-table" class="table table-striped table-bordered" cellspacing="0" width="100%"
-                   height="100%">
+            <table id="human-cases-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th>No. Cases</th>

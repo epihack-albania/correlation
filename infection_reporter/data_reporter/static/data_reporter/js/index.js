@@ -9,11 +9,11 @@ $(document).ready(function () {
 
     $('#human-cases-table').DataTable({
         ajax: {
-            "url": "http://192.168.176.86:8000/data-reporter/human/cases/",
+            "url": "http://localhost:8000/data-reporter/human/cases/",
             "dataType": "json"
-
         },
-        columns: [{"data": "case_count"},
+        columns: [
+            {"data": "case_count"},
             {"data": "residency_region"},
             {"data": "residency_district"},
             {"data": "residency_commune"},
@@ -23,7 +23,8 @@ $(document).ready(function () {
             {"data": "confirm_count"},
             {"data": "probable_count"},
             {"data": "suspected_count"},
-            {"data": "severity_level"}],
+            {"data": "severity_level"}
+        ],
         fnRowCallback: function (nRow, aData, iDisplayIndex) {
             nRow.className = "alert-danger"
         },
@@ -31,13 +32,13 @@ $(document).ready(function () {
         scrollCollapse: true,
         paging: false
     });
-    $('#myTable2').DataTable({
+    $('#animal-cases-table').DataTable({
         ajax: {
-            "url": "http://192.168.176.86:8000/data-reporter/animal/cases/",
+            "url": "http://localhost:8000/data-reporter/animal/cases/",
             "dataType": "json"
-
         },
-        columns: [{"data": "case_count"},
+        columns: [
+            {"data": "case_count"},
             {"data": "residency_region"},
             {"data": "residency_district"},
             {"data": "residency_commune"},
@@ -47,11 +48,10 @@ $(document).ready(function () {
             {"data": "confirm_count"},
             {"data": "probable_count"},
             {"data": "suspected_count"},
-            {"data": "severity_level"}],
+            {"data": "severity_level"}
+        ],
         scrollY: 700,
         scrollCollapse: true,
         paging: false
     });
-    // Apply a search to the second table for the demo
-    $('#myTable2').DataTable().draw();
 });
