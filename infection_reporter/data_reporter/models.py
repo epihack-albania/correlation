@@ -49,7 +49,7 @@ class HumanCase(StdModel):
     disease = models.ForeignKey(Disease)
 
     def __str__(self):
-        return "{} - {} - {}".format(self.disease, self.case_count, self.residency_region)
+        return "{} - {} - {}".format(self.disease, self.case_count, self.district)
 
 
 class AnimalCase(StdModel):
@@ -65,3 +65,6 @@ class AnimalCase(StdModel):
     mortality_rate = models.DecimalField('Mortality rate', max_digits=3, decimal_places=2)
     fatality_rate = models.DecimalField('Fatality rate', max_digits=3, decimal_places=2)
     disease = models.ForeignKey(Disease)
+
+    def __str__(self):
+        return "{} - {} - {}".format(self.disease, self.case_count, self.district)
