@@ -1,5 +1,4 @@
 import serpy
-from django.utils.timezone import localtime
 
 
 class HumanCaseSerializer(serpy.Serializer):
@@ -16,8 +15,7 @@ class HumanCaseSerializer(serpy.Serializer):
     severity_level = serpy.StrField()
 
     def get_period(self, obj):
-        return "{} - {}".format(localtime(obj.start_period).strftime('%d / %m / %Y'),
-                                localtime(obj.end_period).strftime('%d / %m / %Y'))
+        return (obj.end_period - obj.start_period).days
 
     def get_disease(self, obj):
         return obj.disease.name
@@ -37,8 +35,7 @@ class AnimalCaseSerializer(serpy.Serializer):
     severity_level = serpy.StrField()
 
     def get_period(self, obj):
-        return "{} - {}".format(localtime(obj.start_period).strftime('%d / %m / %Y'),
-                                localtime(obj.end_period).strftime('%d / %m / %Y'))
+        return (obj.end_period - obj.start_period).days
 
     def get_disease(self, obj):
         return obj.disease.name

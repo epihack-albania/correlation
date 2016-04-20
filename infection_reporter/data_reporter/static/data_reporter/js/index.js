@@ -25,9 +25,6 @@ $(document).ready(function () {
             {"data": "suspected_count"},
             {"data": "severity_level"}
         ],
-        fnRowCallback: function (nRow, aData, iDisplayIndex) {
-            nRow.className = "alert-danger"
-        },
         scrollY: 700,
         scrollCollapse: true,
         paging: false
