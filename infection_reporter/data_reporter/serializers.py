@@ -3,6 +3,7 @@ import serpy
 
 class HumanCaseSerializer(serpy.Serializer):
     case_count = serpy.IntField()
+    disease = serpy.MethodField()
     hospitalization_avg = serpy.FloatField()
     sampling_avg = serpy.FloatField()
     laboratory_avg = serpy.FloatField()
@@ -10,14 +11,13 @@ class HumanCaseSerializer(serpy.Serializer):
     district = serpy.StrField()
     village = serpy.StrField()
     min_age = serpy.FloatField()
-    disease = serpy.MethodField()
-    confirm_count = serpy.IntField()
-    probable_count = serpy.IntField()
-    suspected_count = serpy.IntField()
-    severity_level = serpy.StrField()
-
-    def get_period(self, obj):
-        return (obj.end_period - obj.start_period).days
+    max_age = serpy.FloatField()
+    age_avg = serpy.FloatField()
+    vaccination_rate = serpy.FloatField()
+    death_rate = serpy.FloatField()
+    recovery_rate = serpy.FloatField()
+    sequela_rate = serpy.FloatField()
+    attack_rate = serpy.FloatField()
 
     def get_disease(self, obj):
         return obj.disease.name
@@ -25,19 +25,12 @@ class HumanCaseSerializer(serpy.Serializer):
 
 class AnimalCaseSerializer(serpy.Serializer):
     case_count = serpy.IntField()
-    residency_region = serpy.StrField()
-    residency_district = serpy.StrField()
-    residency_commune = serpy.StrField()
-    residency_village = serpy.StrField()
-    period = serpy.MethodField()
     disease = serpy.MethodField()
-    confirm_count = serpy.IntField()
-    probable_count = serpy.IntField()
-    suspected_count = serpy.IntField()
-    severity_level = serpy.StrField()
-
-    def get_period(self, obj):
-        return (obj.end_period - obj.start_period).days
+    residency_district = serpy.StrField()
+    residency_village = serpy.StrField()
+    morbidity_rate = serpy.FloatField()
+    mortality_rate = serpy.FloatField()
+    fatality_rate = serpy.FloatField()
 
     def get_disease(self, obj):
         return obj.disease.name
