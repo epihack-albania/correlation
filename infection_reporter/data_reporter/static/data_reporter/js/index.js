@@ -120,6 +120,6 @@ $(document).ready(function () {
         Messenger().post('2 Brucellosis cases reported in Borsh, Saranda')
     });
     $('#add-animal-case').on('click', function (event) {
-        Messenger().post({message: '3 H5N1 cases reported in Dukat, Vlora', type: 'error'})
+        Messenger().post({message: '3 H5N1 cases reported in Dukat, Vlora', type: 'error'});
     });
 });

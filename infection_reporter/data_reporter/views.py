@@ -1,3 +1,4 @@
+from django.core.mail import EmailMessage
 from django.http import JsonResponse
 from django.shortcuts import render
 
