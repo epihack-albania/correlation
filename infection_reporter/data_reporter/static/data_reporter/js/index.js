@@ -21,6 +21,8 @@ $(document).ready(function () {
                 "render": function (data, type, full, meta) {
                     if (full.disease.urgent || full.case_count > 3) {
                         return "<span class='urgent'>" + data + "</span>"
+                    } else if (full.recovery_rate == 100){
+                        return "<span class='ok'>" + data + "</span>"
                     }
                     return "<span>" + data + "</span>";
                 }
