@@ -1,73 +1,40 @@
 districts = [
     {
-        'name': 'KUKËS',
-        'village': ['PERBREG']
+        'name': 'Kukës',
+        'village': ['Perbreg']
     },
     {
-        'name': 'DELVINË',
-        'village': ['Q.DELVINE']
+        'name': 'Delvinë',
+        'village': ['Q.Delvinë']
     },
     {
-        'name': 'POGRADEC',
-        'village': ['VERDOVE']
+        'name': 'Pogrades',
+        'village': ['Verdovë']
     },
     {
-        'name': 'VLORË',
-        'village': ['DUKAT', 'FUSHE', 'MERTIRAJ', 'RROMES', 'XHYHERINE', 'DUKAT FUSHE', 'VELÇE', 'BABICË E MADHE', 'FSHAT ARMEN']
+        'name': 'Vlorë',
+        'village': ['Dukat', 'Fushë', 'Mertiraj', 'Rromes', 'Xhyherinë', 'Dukat Fushë', 'Velçe', 'Babicë e Madhe',
+                    'Fshat Armen']
     },
     {
-        'name': 'KURBIN',
-        'village': ['ADRIATIK (SHELLINXE)']
+        'name': 'Kurbin',
+        'village': ['Adriatik (Shëllinxë)', 'Mal-Bardhë', 'Fushë-Mamurras']
     },
     {
-        'name': 'LUSHNJË',
-        'village': ['PIRRE']
+        'name': 'Lushnjë',
+        'village': ['Pirre']
     },
     {
-        'name': 'KURBIN',
-        'village': ['MAL-BARDHE']
+        'name': 'Kuçovë',
+        'village': ['Vlashuk']
     },
     {
-        'name': 'KURBIN',
-        'village': ['FUSHE-MAMURRAS']
+        'name': 'Berat',
+        'village': ['Roshnik Qendër', 'Pobrat', 'Remanicë', 'Plashnik i vogël', 'Galinë']
     },
     {
-        'name': 'KUÇOVË',
-        'village': ['VLASHUK']
-    },
-    {
-        'name': 'BERAT',
-        'village': ['ROSHNIK QENDER']
-    },
-    {
-        'name': 'BERAT',
-        'village': ['POBRAT']
-    },
-    {
-        'name': 'BERAT',
-        'village': ['REMANICE']
-    },
-    {
-        'name': 'BERAT',
-        'village': ['PLASHNIK I VOGEL']
-    },
-    {
-        'name': 'BERAT',
-        'village': ['GALINE']
-    },
-    {
-        'name': 'VLORË',
-        'village': ['BABICË E MADHE']
-    },
-    {
-        'name': 'ELBASAN',
-        'village': ['RRENËS']
-    },
-    {
-        'name': 'KURBIN',
-        'village': ['MAL-BARDHE']
+        'name': 'Elbasan',
+        'village': ['Rrenës']
     },
 
 ]
-
-

@@ -43,7 +43,10 @@
                     and Alert</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-
+                <ul class="nav navbar-nav">
+                    <li><a id="add-human-case" href="#">+ Add Human Case</a></li>
+                    <li><a id="add-animal-case" href="#">+ Add Animal Case</a></li>
+                </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
@@ -52,7 +55,8 @@
     <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked">
             {% for disease in diseases %}
-                <li {% ifequal active disease.name %} class="active" data-disease-id="{{ disease.id }}" {% endifequal %}>
+                <li {% ifequal active disease.name %} class="active"
+                                                      data-disease-id="{{ disease.id }}" {% endifequal %}>
                     <a href="{% url 'data-reporter:disease' disease.id %}">{{ disease.name }}
                         <span class="badge pull-right">{{ disease.human_cases.count }} | {{ disease.animal_cases.count }}</span>
                     </a>

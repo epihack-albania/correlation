@@ -21,7 +21,7 @@ $(document).ready(function () {
                 "render": function (data, type, full, meta) {
                     if (full.disease.urgent || full.case_count > 3) {
                         return "<span class='urgent'>" + data + "</span>"
-                    } else if (full.recovery_rate == 100){
+                    } else if (full.recovery_rate == 100) {
                         return "<span class='ok'>" + data + "</span>"
                     }
                     return "<span>" + data + "</span>";
@@ -111,8 +111,15 @@ $(document).ready(function () {
         ]
     });
 
-    setInterval(function () {
-        humanCasesTable.ajax.reload();
-        animalCasesTable.ajax.reload();
-    }, 60000)
+    // setInterval(function () {
+    //     humanCasesTable.ajax.reload();
+    //     animalCasesTable.ajax.reload();
+    // }, 60000);
+
+    $('#add-human-case').on('click', function (event) {
+
+    });
+    $('#add-animal-case').on('click', function (event) {
+        
+    });
 });
