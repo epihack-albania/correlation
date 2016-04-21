@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'data_reporter/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'data_reporter/css/dataTables.bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'data_reporter/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'data_reporter/css/messenger.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'data_reporter/css/messenger-theme-future.css' %}">
 
     <script type="text/javascript" language="javascript" src="{% static 'data_reporter/js/jquery.min.js' %}"></script>
     <script type="text/javascript" language="javascript"
@@ -25,6 +27,8 @@
     <script type="text/javascript" language="javascript"
             src="{% static 'data_reporter/js/dataTables.bootstrap.min.js' %}">
     </script>
+    <script type="text/javascript" src="{% static 'data_reporter/js/messenger.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'data_reporter/js/messenger-theme-future.js' %}"></script>
     <script type="text/javascript" src="{% static 'data_reporter/js/index.js' %}"></script>
 </head>
 <body>
@@ -44,8 +48,8 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a id="add-human-case" href="#">+ Add Human Case</a></li>
-                    <li><a id="add-animal-case" href="#">+ Add Animal Case</a></li>
+                    <li><a id="add-human-case" href="#">+ Normal Case</a></li>
+                    <li><a id="add-animal-case" href="#">+ Outbreak Case</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
