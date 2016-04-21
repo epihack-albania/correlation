@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     var humanCasesTable = $('#human-cases-table').DataTable({
         ajax: {
-            "url": "http://localhost:8000/data-reporter/human/cases/" + diseaseId,
+            "url": "/data-reporter/human/cases/" + diseaseId,
             "dataType": "json"
         },
         columns: [
@@ -77,7 +77,7 @@ $(document).ready(function () {
     });
     var animalCasesTable = $('#animal-cases-table').DataTable({
         ajax: {
-            "url": "http://localhost:8000/data-reporter/animal/cases/" + diseaseId,
+            "url": "/data-reporter/animal/cases/" + diseaseId,
             "dataType": "json"
         },
         columns: [
